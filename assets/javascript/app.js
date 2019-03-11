@@ -127,14 +127,29 @@ jQuery(document).ready(function () {
             for (var i = 0; i < triviaObj.questions[questionIndex].answers.length; i++) {
                 $("#userChoices").append("<input type='radio' name='choices' value=" + triviaObj.questions[questionIndex].answers[i] + ">" + triviaObj.questions[questionIndex].answers[i] + "<br>");
             }
-
-            //start at the beginning of the game
-            questionIndex = 0;
-            // TODO: decide if I want to restart the game at this point or just terminate?
-
+     
+            restartOrExit();
         }
 
     }
+
+
+{/* <p hidden="hidden" id="restartExit"> Would you like to restart the game? </p>
+  <button hidden="hidden" id="Yes">Yes</button>
+  <button  hidden="hidden" id="No">No</button> */}
+
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // clearTimer() - used to remove timer and prevent it's firing
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function   restartOrExit (){
+
+        // Ask the player if they would like to restart the game or exit
+        $("#restartExit").append("hidden:")
+
+
+
+     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // clearTimer() - used to remove timer and prevent it's firing
@@ -204,7 +219,7 @@ jQuery(document).ready(function () {
         $("#userChoices").text("");
 
         // message the player that their answer is incorrect. 
-        $("#userMessage").text("The answer is INCORRECT. You have answered " + totalCorrect + " questions correctly, and " + totalIncorrect + " incorrectly!");
+        $("#userMessage").text("The correct answer is " + triviaObj.questions[questionIndex].correctAnswer + ". You have answered " + totalCorrect + " questions correctly, and " + totalIncorrect + " incorrectly!" );
 
         // start the transition timer. Used to make sure the player has adequate time to view incorrect error message
         startQuestionTransition();
